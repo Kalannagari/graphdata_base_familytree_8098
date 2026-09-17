@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Persons.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { API_BASE_URL } from "../config";
 
 const Persons = () => {
   const [showModal, setShowModal] = useState(false);
@@ -98,7 +99,7 @@ const payload = {
   vehicleInsuranceExpiry: formattedVehicleExpiry
 };
 console.log("Payload to save:", payload);
-const response = await axios.post("http://localhost:8081/api/add", payload);
+const response = await axios.post(`${API_BASE_URL}/add`, payload);
 
 console.log("Saved successfully:", response.data);
 alert("Person data saved successfully!");
@@ -106,7 +107,7 @@ alert("Person data saved successfully!");
 setShowModal(false);
 
 // // Refresh list of persons
-// const refreshed = await axios.get("http://localhost:8081/api/persons");
+// const refreshed = await axios.get(`${API_BASE_URL}/persons`);
 // setRecords(refreshed.data);
 } catch (error) {
 console.error("Error saving person:", error);
@@ -121,7 +122,7 @@ alert("Failed to save person data. Please check console/logs.");
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/persons")
+    fetch(`${API_BASE_URL}/persons`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched data:", data);

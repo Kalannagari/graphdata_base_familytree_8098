@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 @Service
-@RequiredArgsConstructor
 public class PersonDataService {
 
     private final Neo4jClient neo4jClient;

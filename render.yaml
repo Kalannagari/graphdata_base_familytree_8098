@@ -1,0 +1,29 @@
+services:
+  # Spring Boot Backend Service
+  - type: web
+    name: family-tree-backend
+    runtime: docker
+    dockerContext: ./FamilyDataTree
+    dockerfilePath: ./FamilyDataTree/Dockerfile
+    envVars:
+      - key: SPRING_NEO4J_URI
+        sync: false
+      - key: SPRING_NEO4J_AUTHENTICATION_USERNAME
+        sync: false
+      - key: SPRING_NEO4J_AUTHENTICATION_PASSWORD
+        sync: false
+
+  # React Frontend Static Site
+  - type: web
+    name: family-tree-frontend
+    runtime: static
+    rootDir: client
+    buildCommand: npm install && npx craco build
+    staticPublishPath: build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_API_BASE_URL
+        sync: false

@@ -36,7 +36,6 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api")
-@RequiredArgsConstructor
 public class FamilyController {
 
 	 private final FamilyService familyService;

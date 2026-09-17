@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Network } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
+import { API_BASE_URL } from '../config';
 
 const GraphDesign = () => {
   const [villageName, setVillageName] = useState('');
@@ -61,7 +62,7 @@ const GraphDesign = () => {
 
   const searchVillage = async () => {
     try {
-      const res = await axios.get(`http://localhost:8081/api/villageGraph/${villageName}`);
+      const res = await axios.get(`${API_BASE_URL}/villageGraph/${villageName}`);
       drawGraph(res.data);
     } catch (err) {
       console.error('Error fetching village data:', err);
@@ -70,7 +71,7 @@ const GraphDesign = () => {
 
   const searchFamily = async () => {
     try {
-      const res = await axios.get(`http://localhost:8081/api/familyGraph/${familyHeadId}`);
+      const res = await axios.get(`${API_BASE_URL}/familyGraph/${familyHeadId}`);
       drawGraph(res.data);
     } catch (err) {
       console.error('Error fetching family data:', err);

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './LandRecords.css';
+import { API_BASE_URL } from '../config';
 
 const LandRecords = () => {
 const [records, setRecords] = useState([]);
 
 useEffect(() => {
-    fetch('http://localhost:8081/api/lands')
+    fetch(`${API_BASE_URL}/lands`)
       .then(response => response.json())
       .then(data => setRecords(data))
       .catch(error => console.error('Error fetching data:', error));

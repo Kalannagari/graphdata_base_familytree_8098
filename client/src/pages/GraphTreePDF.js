@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 const GraphTreePDF = () => {
   const [villageName, setVillageName] = useState('');
@@ -8,7 +9,7 @@ const GraphTreePDF = () => {
 
   const searchVillage = async () => {
     try {
-      const res = await axios.get(`http://localhost:8081/api/villageGraph/${villageName}`);
+      const res = await axios.get(`${API_BASE_URL}/villageGraph/${villageName}`);
       setData(res.data);
     } catch (err) {
       console.error('Error fetching village data:', err);
@@ -17,7 +18,7 @@ const GraphTreePDF = () => {
 
   const searchFamily = async () => {
     try {
-      const res = await axios.get(`http://localhost:8081/api/familyGraph/${familyHeadId}`);
+      const res = await axios.get(`${API_BASE_URL}/familyGraph/${familyHeadId}`);
       setData(res.data);
     } catch (err) {
       console.error('Error fetching family data:', err);

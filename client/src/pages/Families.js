@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './FamilyRecords.css';
+import { API_BASE_URL } from '../config';
 
 const FamilyRecords = () => {
   const [records, setRecords] = useState([]);
 
 useEffect(() => {
-    fetch("http://localhost:8081/api/families")
+    fetch(`${API_BASE_URL}/families`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched data:", data);

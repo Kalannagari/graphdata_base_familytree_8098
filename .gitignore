@@ -1,0 +1,16 @@
+# Maven build artifacts
+**/target/
+**/*.jar
+**/*.war
+
+# Node dependencies and builds
+**/node_modules/
+**/build/
+.npm/
+
+# IDE files
+.idea/
+.vscode/
+*.classpath
+*.project
+*.settings/

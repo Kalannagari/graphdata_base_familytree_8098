@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { FaUsers, FaCar, FaMapMarkedAlt } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
+import { API_BASE_URL } from "../config";
 
 function Dashboard() {
   const [totalPersons, setTotalPersons] = useState(null);
@@ -13,7 +14,7 @@ function Dashboard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/totalPersons")
+    fetch(`${API_BASE_URL}/totalPersons`)
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === "object") {
@@ -29,7 +30,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/totalFamilies")
+    fetch(`${API_BASE_URL}/totalFamilies`)
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === "object") {
@@ -45,7 +46,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/totalLandArea")
+    fetch(`${API_BASE_URL}/totalLandArea`)
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === "object") {
@@ -61,7 +62,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/totalVehicles")
+    fetch(`${API_BASE_URL}/totalVehicles`)
       .then((response) => response.json())
       .then((data) => {
         if (typeof data === "object") {
@@ -77,7 +78,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/families")
+    fetch(`${API_BASE_URL}/families`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched data:", data);

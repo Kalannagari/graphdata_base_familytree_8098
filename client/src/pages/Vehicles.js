@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Vehicle.css';
+import { API_BASE_URL } from '../config';
 
 const Vehicle = () => {
 const [records, setRecords] = useState([]);
 
     useEffect(() => {
-    fetch('http://localhost:8081/api/vehicles')
+    fetch(`${API_BASE_URL}/vehicles`)
       .then(response => response.json())
       .then(data => setRecords(data))
       .catch(error => console.error('Error fetching data:', error));
