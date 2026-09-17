@@ -27,4 +27,6 @@ services:
         destination: /index.html
     envVars:
       - key: REACT_APP_API_BASE_URL
-        sync: false
+        value: https://family-tree-backend-v207.onrender.com/api
+      - key: GENERATE_SOURCEMAP
+        value: false
