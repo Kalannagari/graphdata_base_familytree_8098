@@ -3,6 +3,7 @@ services:
   - type: web
     name: family-tree-backend
     runtime: docker
+    plan: free
     dockerContext: ./FamilyDataTree
     dockerfilePath: ./FamilyDataTree/Dockerfile
     envVars:
@@ -17,6 +18,7 @@ services:
   - type: web
     name: family-tree-frontend
     runtime: static
+    plan: free
     rootDir: client
     buildCommand: npm install && npx craco build
     staticPublishPath: build
